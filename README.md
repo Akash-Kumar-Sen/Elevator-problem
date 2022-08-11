@@ -22,7 +22,7 @@ python manage.py runserver
 
 2. Redis caching is done for the entire site with a time limit of 5 minutes, so if you update the DB the changes in a cached device will appear 5 minutes later.
 
-3. Please make sure redis is installed and running in your device. If it is running in a different port than 6379 then please go to Elevator/Settings.py and update it at line number : 158.
+3. Please make sure redis is installed and running in your device. If it is running in a different port than 6379 then please go to [Elevator/Settings.py](https://github.com/Akash-Kumar-Sen/Elevator-problem/blob/main/Elevator/settings.py) and update it at line number : 158.
 
 4. The elevator is running in a different thread and processes all the requests immediately. Check core/move_elevator.py and core/apps.py to know more details.
 
