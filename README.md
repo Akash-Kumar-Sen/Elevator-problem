@@ -24,7 +24,7 @@ python manage.py runserver
 
 3. Please make sure redis is installed and running in your device. If it is running in a different port than 6379 then please go to [Elevator/Settings.py](https://github.com/Akash-Kumar-Sen/Elevator-problem/blob/main/Elevator/settings.py) and update it at line number : 158.
 
-4. The elevator is running in a different thread and processes all the requests immediately. Check core/move_elevator.py and core/apps.py to know more details.
+4. The elevator is running in a different thread and processes all the requests immediately. Check [core/move_elevator.py](https://github.com/Akash-Kumar-Sen/Elevator-problem/blob/main/core/move_elevator.py) and [core/apps.py](https://github.com/Akash-Kumar-Sen/Elevator-problem/blob/main/core/apps.py) to know more details.
 
 5. sqlite3 DB is used for portability in GitHub. Postgres code is also given in comment you can replace it.
 
