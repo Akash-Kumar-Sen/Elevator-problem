@@ -28,6 +28,6 @@ python manage.py runserver
 
 5. sqlite3 DB is used for portability in GitHub. Postgres code is also given in comment you can replace it.
 
-4. Please check the models representation and API endpoints at DOCS.md
+4. Please check the models representation and API endpoints at [DOCS.md](https://github.com/Akash-Kumar-Sen/Elevator-problem/blob/main/DOCS.md)
 
 5. Please share the scope of improvements you are able to see.
