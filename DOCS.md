@@ -97,7 +97,7 @@ Get details of a specific elevator, given its elevator system id and elevator nu
 ```
 
 ### PUT/PATCH api/el-sys/{elevator-system-id}/elevator/{elevator-number}/update/
-Update details of a specific elevator, given its elevator system and elevator number with URL It can be done together with the previous view, but repeated for better understanding.
+Update details of a specific elevator, given its elevator system and elevator number with URL It can be done together with the previous view, but repeated for better understanding.Put is not a recomended method, so the put method is overridden by patch in the back-end. But while sending requests you can use any of them.
 
 #### Path Parameter
 ```
