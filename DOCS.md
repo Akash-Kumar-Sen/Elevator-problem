@@ -157,7 +157,11 @@ List all the requests for a given elevator. Requests already served can be filte
 {elevator-system-id} = ID of the elevator system
 {elevator-number} = unique number of the elevator
 ```
-
+#### Params
+```
+is_active ----> False/0 ---> All the processed requests by the elevator(False is case insensitive)
+is_active ----> True/1 ---> All the pending requests by the elevator(True is case insensitive)
+```
 #### Response Example
 ```
 200
