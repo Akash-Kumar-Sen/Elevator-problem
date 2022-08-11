@@ -26,7 +26,19 @@ python manage.py runserver
 
 4. The elevator is running in a different thread and processes all the requests immediately. Check [core/move_elevator.py](https://github.com/Akash-Kumar-Sen/Elevator-problem/blob/main/core/move_elevator.py) and [core/apps.py](https://github.com/Akash-Kumar-Sen/Elevator-problem/blob/main/core/apps.py) to know more details.
 
-5. sqlite3 DB is used for portability in GitHub. Postgres code is also given in comment you can replace it.
+5. sqlite3 DB is used for portability in GitHub. Postgres code is also given below you can replace it at [Elevator/settings.py-line-95](https://github.com/Akash-Kumar-Sen/Elevator-problem/blob/main/Elevator/settings.py#L95).
+```
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': ‘<database_name>’,
+       'USER': '<database_username>',
+       'PASSWORD': '<password>',
+       'HOST': '<database_hostname_or_ip>',
+       'PORT': '<database_port>',
+   }
+}
+```
 
 4. Please check the models representation and API endpoints at [DOCS.md](https://github.com/Akash-Kumar-Sen/Elevator-problem/blob/main/DOCS.md)
 
