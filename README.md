@@ -1,7 +1,7 @@
 # Elevator-problem
 
 ## Installation : 
-1. Make a virtual enviornment in your preferred windows/Linux/...any system
+1. Make a virtual enviornment in your preferred Linux/WSL2...any system
 
 2. Clone the repo and navigate to the directory where the manage.py file is located
 
