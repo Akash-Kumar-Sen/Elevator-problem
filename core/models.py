@@ -10,7 +10,7 @@ class ElevatorSystem(models.Model):
   Minimum floor is assumed as 0 but dynamic minimum floor can be implemented easily.
 
   '''
-  system_name = models.CharField(default = 'Name', max_length = 20)
+  system_name = models.CharField(max_length = 20)
   max_floor = models.IntegerField()
   number_of_elevators = models.PositiveSmallIntegerField()
 

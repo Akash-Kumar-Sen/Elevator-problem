@@ -13,11 +13,11 @@ urlpatterns=[
 
     #single elevator
     #view
-    path('el-sys/<int:id>/elevator/<int:pk>/view/',ViewSingleElevator.as_view(),name='elevator-list'),
+    path('el-sys/<int:id>/elevator/<int:pk>/view/',ViewSingleElevator.as_view(),name='elevator-view'),
     #update
-    path('el-sys/<int:id>/elevator/<int:pk>/update/',UpdateSingleElevator.as_view(),name='elevator-list'),
+    path('el-sys/<int:id>/elevator/<int:pk>/update/',UpdateSingleElevator.as_view(),name='elevator-update'),
     #Fetch destination
-    path('el-sys/<int:id>/elevator/<int:pk>/destination/',FetchDestination.as_view(),name='fetch-destination')
+    path('el-sys/<int:id>/elevator/<int:pk>/destination/',FetchDestination.as_view(),name='fetch-destination'),
 
     #Request to an elevator
     #create
