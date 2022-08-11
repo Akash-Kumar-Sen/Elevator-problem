@@ -2,6 +2,10 @@ from .models import Elevator,ElevatorRequest,ElevatorSystem
 from threading import Thread
 
 class RunThread(Thread):
+  '''
+  A different thread running in an infinite loop
+  to process all the requests made to an elevator
+  '''
   def run(self):
     while True:
       final_run()
@@ -9,6 +13,10 @@ class RunThread(Thread):
 
 
 def move_elevator(elevator_object : Elevator,elevator_system : ElevatorSystem):
+  '''
+  Filter all the requests for a given elevator
+  move it according to the requests.
+  '''
   requests_pending = ElevatorRequest.objects.filter(
     elevator = elevator_object,
     is_active = True,
@@ -72,6 +80,10 @@ def move_elevator(elevator_object : Elevator,elevator_system : ElevatorSystem):
 
 
 def check_elevator_system(elevator_system : ElevatorSystem):
+  '''
+  Filter all the elevators running in an elevator system
+  and process their requests one by one.
+  '''
   elevators_running = Elevator.objects.filter(
     elevator_system = elevator_system,
     is_operational = True,
@@ -82,6 +94,9 @@ def check_elevator_system(elevator_system : ElevatorSystem):
 
 
 def final_run():
+  '''
+  Run the process for all elevator systems
+  '''
   elevator_systems = ElevatorSystem.objects.all().order_by('id')
 
   for elevator_system in elevator_systems:

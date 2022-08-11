@@ -1,29 +1,41 @@
+# DRF imports
 from rest_framework import generics,viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+# Django filters imports
 from django_filters.rest_framework import DjangoFilterBackend
 
+# Local model imports
 from .models import ElevatorSystem,Elevator,ElevatorRequest
+
+# Local serializers
 from .serializers import ElevatorSystemSerializer,ElevatorSerializer,ElevatorRequestSerializer,ElevatorRequestSerializerAll
 
+# App functions 
 from .create_elevators import create_elevators
 
 
-# Get all the listed elevator systems
+
 class ElevatorSystemList(generics.ListAPIView):
+  '''
+  Fetch all the listed elevator systems.
+  '''
   queryset = ElevatorSystem.objects.all()
   serializer_class = ElevatorSystemSerializer
 
 
-
-
-# Initialize a new listed elevator systems
 class CreateElevatorSystem(generics.CreateAPIView):
+  '''
+  Create a new elevator system.
+  '''
   serializer_class = ElevatorSystemSerializer
 
   # Overriding the perform_create method of 'mixins.CreateModelMixin', Parent class of 'CreateAPIView'
   def perform_create(self, serializer):
     serializer.save()
+
+    # Creating elevators needed for the system. For more details check create_elevators.py
     create_elevators(
       number_of_elevators=serializer.data['number_of_elevators'],
       system_id=serializer.data['id']
@@ -31,10 +43,10 @@ class CreateElevatorSystem(generics.CreateAPIView):
 
 
 
-
-
-# Get all the elevators of a given system
 class ElevatorsList(generics.ListAPIView):
+  '''
+  Given an elevator system list all the elevators and their status. 
+  '''
   serializer_class = ElevatorSerializer
 
   def get_queryset(self):
@@ -44,11 +56,11 @@ class ElevatorsList(generics.ListAPIView):
     return queryset
 
 
-
-
-
-# Get details of a specific elevator
 class ViewSingleElevator(generics.RetrieveAPIView):
+  '''
+  Get details of a specific elevator, 
+  given its elevator system and elevator number with URL
+  '''
   serializer_class = ElevatorSerializer
 
   def  get_object(self):
@@ -63,8 +75,14 @@ class ViewSingleElevator(generics.RetrieveAPIView):
     return queryset[0]
 
 
-# Update single elevator
+
 class UpdateSingleElevator(generics.UpdateAPIView):
+  '''
+  Update details of a specific elevator, 
+  given its elevator system and elevator number with URL
+  It can be done together with the previous view, 
+  but repeated for better understanding.
+  '''
   serializer_class = ElevatorSerializer
 
   def  get_object(self):
@@ -83,9 +101,13 @@ class UpdateSingleElevator(generics.UpdateAPIView):
     return self.partial_update(request, *args, **kwargs)
 
 
-
-# Create a new request for a specific 
 class CreateElevatorRequest(generics.CreateAPIView):
+  '''
+  Create a new request for a specific elevator, 
+  given its elevator system and elevator number with URL.
+  The inputs of requested and destinatiom floor is sent with
+  the form-data.
+  '''
   serializer_class = ElevatorRequestSerializer
 
   # Overriding the perform_create method of 'mixins.CreateModelMixin', Parent class of 'CreateAPIView'
@@ -101,9 +123,14 @@ class CreateElevatorRequest(generics.CreateAPIView):
 
     serializer.save(elevator = elevator_object)
     
-
-# List all the requests for a given elevator
+    
 class ElevatorRequestList(generics.ListAPIView):
+  '''
+  List all the requests for a given elevator
+  Requests already served can be filtered with is_active
+  parameter set false
+
+  '''
   serializer_class = ElevatorRequestSerializerAll
   filter_backends = [DjangoFilterBackend]
   filterset_fields = ['is_active']
@@ -120,13 +147,13 @@ class ElevatorRequestList(generics.ListAPIView):
     queryset = ElevatorRequest.objects.filter(elevator = elevator_object[0])
     return queryset
 
-# Fetch the next destination floor for a given elevator
-class FetchDestination(APIView):
 
+
+class FetchDestination(APIView):
+  '''
+  Fetch the next destination floor for a given elevator
+  '''
   def get(self, request,id,pk):
-    """
-    Return a list of all users.
-    """
     system_id = id
     elevator_number = pk
 
