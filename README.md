@@ -20,7 +20,7 @@ python manage.py runserver
 
 ## Special Note :
 
-1. The code is repeatative in some cases as I have used each view only for one type of request to provide a better understanding.
+1. The code is repeatative in some cases as I have used each view only for one type of HTTP Method to provide a better understanding.
 
 2. Redis caching is done for the entire site with a time limit of 5 minutes, so if you update the DB the changes in a cached device will appear 5 minutes later.
 
