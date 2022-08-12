@@ -4,6 +4,10 @@ The elevator system is built completely from the user perspective. There are ele
 
 ## Installation : 
 1. Make a python virtual enviornment in your preferred Linux/WSL2...any system
+```
+Recommended python version -----> 3.8.X (The LATEST STABLE RELEASE)
+Some of the packages are not up-to date with python 3.9 or 3.10
+```
 
 2. Clone the repo and navigate to the directory where the manage.py file is located
 ```
