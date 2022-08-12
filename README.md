@@ -6,6 +6,12 @@ The elevator system is built completely from the user perspective. There are ele
 1. Make a python virtual enviornment in your preferred Linux/WSL2...any system
 
 2. Clone the repo and navigate to the directory where the manage.py file is located
+```
+git clone https://github.com/Akash-Kumar-Sen/Elevator-problem.git
+```
+```
+cd Elevator-problem
+```
 
 3. Please read the special note point number 2 below, and go through the entire notes once.
 
