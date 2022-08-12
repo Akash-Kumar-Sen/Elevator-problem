@@ -3,7 +3,7 @@
 The elevator system is built completely from the user perspective. There are elevator systems(Equivalent to buildings) that contains some elevators. Now some user comes in and makes a request to an elevator. The elevator automatically moves UP/DOWN as per the request of the user.The elevator's algorithm to process the requests can be optimized further. The status of an elevator like it is currently operational or not can be updated using API calls. Visit the DOCS.md for further information.
 
 ## Installation : 
-1. Make a virtual enviornment in your preferred Linux/WSL2...any system
+1. Make a python virtual enviornment in your preferred Linux/WSL2...any system
 
 2. Clone the repo and navigate to the directory where the manage.py file is located
 
